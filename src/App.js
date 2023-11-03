@@ -16,7 +16,8 @@ const IterationSample = ()=>{
   const [nextId, setNextId] = useState(5);
   const [inputText, setInputText] = useState('');
 
-  const nameList = names.map(name=><li key={name.id}>{name.text}</li>)
+  const nameList = names.map(name=><li key={name.id}
+    onDoubleClick={()=>onRemove(name.id)}>{name.text}</li>)
 
   const onChange = e=>{setInputText(e.target.value); console.log(inputText)}
   // 추가하면 과일 항목 추가
@@ -26,6 +27,13 @@ const IterationSample = ()=>{
     setNames(nextNames);
     setInputText('');
   }
+
+  const onRemove = id=>{
+    const nextNames = names.filter(name => name.id !== id);
+    setNames(nextNames);
+  }
+
+
 
   return(
     <>
