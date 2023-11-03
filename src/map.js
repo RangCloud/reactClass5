@@ -8,3 +8,8 @@ const names = ['사과','망고','토마토','오렌지'];
 const nameList = names.map(name=>`<li>${name}</li>`);
 console.log(mapped);
 console.log(nameList);
+
+const mapIndex = numbers.map(
+    (num, idx) =>{return num*idx} // num 1,2,3,4,5
+)
+console.log(mapIndex);
