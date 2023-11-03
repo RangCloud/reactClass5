@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 } */
 const IterationSample = ()=>{
   // preset
-  const [names, setName] = useState([
+  const [names, setNames] = useState([
     {id:1, text:'사과'},{id:2, text:'망고'},{id:3, text:'토마토'},{id:4, text:'오렌지'}
   ])
   // new items
@@ -19,11 +19,18 @@ const IterationSample = ()=>{
   const nameList = names.map(name=><li key={name.id}>{name.text}</li>)
 
   const onChange = e=>{setInputText(e.target.value); console.log(inputText)}
+  // 추가하면 과일 항목 추가
+  const onClick = ()=>{
+    const nextNames = names.concat({id:nextId, text:inputText})
+    setNextId(nextId+1);
+    setNames(nextNames);
+    setInputText('');
+  }
 
   return(
     <>
     <input value={inputText} onChange={onChange}/>
-    <button>추가</button>
+    <button onClick={onClick}>추가</button>
     <ul>{nameList}</ul>
     </>
   )
